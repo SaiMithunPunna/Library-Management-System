@@ -88,7 +88,40 @@ public class Library {
 
     }
 
-    
+    //returnin book
+
+    public void returnBook(int bookId)
+    {
+        for(Transaction t : transactions)
+        {
+            if(t.getBook().getId()==bookId)
+            {
+                Book b=t.getBook();
+                b.setIssued(false);
+
+                LocalDate today=LocalDate.now();
+                if(today.isAfter(t.getDueDate()))
+                {
+                    long noDaysLate = today.toEpochDay() - t.getDueDate().toEpochDay();
+                    double fine= noDaysLate*10;
+                    //10 rs for each day  as fine for late return
+
+                    System.out.println("Due to late return , ₹"+fine+" fee applied.");
+                }
+                else
+                {
+                    System.out.println("Returned book on time.");
+
+                }
+                transactions.remove(t);
+                return ;
+            }
+        }
+        System.out.println("Transaction record of this book is not found.");
+        return;
+    }
+
+
 
     
 
