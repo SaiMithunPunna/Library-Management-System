@@ -8,7 +8,15 @@ public class Library {
     private List<Transaction> transactions = new ArrayList<>();
 
 
-    
+    //adding new book
+    public void addBook(Book book)
+    {
+        books.add(book);
+        System.out.println("Book added.");
 
+
+    }
+
+    
 
 }
