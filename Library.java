@@ -20,9 +20,9 @@ public class Library {
     {
         for(Book b : books )
         {
-            b.viewBook();
+            System.out.println(b.viewBook());
         }
-    }
+    }2
 
 
     //add new user
@@ -127,7 +127,7 @@ public class Library {
         for (Book b : books) {
             if (b.getTitle().toLowerCase().contains(keyword.toLowerCase()) ||
                 b.getAuthor().toLowerCase().contains(keyword.toLowerCase())) {
-                System.out.println(b);
+                System.out.println(b.viewBook());
             }
         }
     }
