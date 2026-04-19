@@ -79,7 +79,16 @@ public class Library {
             System.out.println("Book is already issued.");
             return;
         }
+
+        b.setIssued(true);
+
+        //add into the transactions record
+        transactions.add(new Transaction(b , u , issueDate));
+        System.out.println("Book issued.");
+
     }
+
+    
 
     
 
