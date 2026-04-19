@@ -16,6 +16,14 @@ public class Library {
 
 
     }
+    public void viewBooks()
+    {
+        for(Book b : books )
+        {
+            b.viewBook();
+        }
+    }
+
 
     
 
