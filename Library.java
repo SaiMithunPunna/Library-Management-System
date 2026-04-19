@@ -122,6 +122,16 @@ public class Library {
     }
 
 
+    //searching book
+    public void searchBook(String keyword) {
+        for (Book b : books) {
+            if (b.getTitle().toLowerCase().contains(keyword.toLowerCase()) ||
+                b.getAuthor().toLowerCase().contains(keyword.toLowerCase())) {
+                System.out.println(b);
+            }
+        }
+    }
+
 
     
 
