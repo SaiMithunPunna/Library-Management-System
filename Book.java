@@ -28,6 +28,10 @@ public class Book
     {
         this.isIssued=issued;
     }
+    public boolean isIssued()
+    {
+        return isIssued;
+    }
     public String viewBook()
     {
         return id + " | " + title + " | " + author + " | Issued: " + isIssued;
