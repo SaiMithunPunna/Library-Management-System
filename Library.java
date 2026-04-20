@@ -1,7 +1,8 @@
 import java.time.LocalDate;
 import java.util.*;
+import java.io.*;
 
-public class Library {
+public class Library implements Serializable{
     
     private List<Book> books=new ArrayList<> ();
     private List<User> users= new ArrayList<>();
@@ -132,7 +133,25 @@ public class Library {
         }
     }
 
+    //save the data of users and books , transactions
 
+    public void saveLibraryData()
+    {
+        try(ObjectOutputStream out= new ObjectOutputStream(new FileOutputStream(("library_data.ser"))))
+        {
+            out.writeObject(books); //coberting books obj into binary(serialization)
+            out.writeObject(users);
+            out.writeObject(transactions);
+
+            System.out.println("Library data saved.");
+
+        }
+        catch(IOException e)
+        {
+            System.out.println("IO exception occured");
+        }
+        
+    }
     
 
 }
