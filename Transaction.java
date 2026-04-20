@@ -1,5 +1,8 @@
 import java.time.LocalDate;
-public class Transaction {
+import java.io.Serializable;
+
+
+public class Transaction implements Serializable{
     private Book book;
     private User user;
     private LocalDate issueDate;

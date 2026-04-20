@@ -7,8 +7,15 @@ public class LibraryManagementSystem
     public static void main(String [] args)
     {
         Scanner sc= new Scanner( System.in);
-        Library library= new Library();
+
         System.out.println("\n\n-----  Library Management System  -----");
+
+        Library library= new Library();
+
+        //load the previous data if available
+        library.loadLibraryData();
+
+        
 
         while(true)
         {
@@ -58,6 +65,7 @@ public class LibraryManagementSystem
                     int bId = sc.nextInt();
                     System.out.print("Enter User ID: ");
                     int uId = sc.nextInt();
+                    sc.nextLine();
                     System.out.println("Enter the issue date for book(yyyy-mm-dd) : ");
                     String dateString=sc.nextLine();
                     LocalDate idate=  LocalDate.parse(dateString);
@@ -79,6 +87,9 @@ public class LibraryManagementSystem
                     break;
 
                 case 7:
+
+                    //save all changes 
+                    library.saveLibraryData();
                     System.out.println("Exiting ...");
                     return;
 

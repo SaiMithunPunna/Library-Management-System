@@ -23,7 +23,7 @@ public class Library implements Serializable{
         {
             System.out.println(b.viewBook());
         }
-    }2
+    }
 
 
     //add new user
@@ -159,6 +159,12 @@ public class Library implements Serializable{
 
     public void loadLibraryData()
     {
+        File f=new File("library_data.ser");
+        if(f.length()==0)
+        {
+            System.out.println("Library  is empty.");
+            return ;
+        }
         try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("library_data.ser")))
         {
             books=(List<Book>) in.readObject();  //converting back to Book objects
