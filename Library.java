@@ -150,8 +150,28 @@ public class Library implements Serializable{
         {
             System.out.println("IO exception occured");
         }
-        
+
     }
     
+    //load the existing library data
+
+    @SuppressWarnings("unchecked") //type casting errors
+
+    public void loadLibraryData()
+    {
+        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("library_data.ser")))
+        {
+            books=(List<Book>) in.readObject();  //converting back to Book objects
+            users=(List<User>) in.readObject();
+            transactions=(List<Transaction>) in.readObject();
+
+            System.out.println("Library data loaded.");
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
 
 }
